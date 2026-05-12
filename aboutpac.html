@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Pac | AdminPacman</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <a href="index.html" class="back-icon-top" title="Back to Arcade">🕹️</a>
+    <div class="container">
+        <!-- Profile Header -->
+        <header class="profile-header" style="margin-top: 5vh;">
+            <h1 class="title">AdminPacman</h1>
+            <p class="tagline">About Pac: Founder & Lead Developer</p>
+        </header>
+
+        <!-- Links Grid -->
+        <nav class="links-container">
+            <a href="https://instagram.com/adminpacman" target="_blank" class="link-btn secondary-btn">
+                <span class="btn-text">Instagram</span>
+                <span class="btn-icon">📷</span>
+            </a>
+            <a href="https://x.com/dminpacman" target="_blank" class="link-btn tertiary-btn">
+                <span class="btn-text">Twitter / X</span>
+                <span class="btn-icon">🐦</span>
+            </a>
+            <a href="https://youtube.com/@adminpacman" target="_blank" class="link-btn accent-btn">
+                <span class="btn-text">YouTube</span>
+                <span class="btn-icon">📺</span>
+            </a>
+            <a href="https://kick.com/adminpacman" target="_blank" class="link-btn kick-btn">
+                <span class="btn-text">Kick</span>
+                <span class="btn-icon">⚡</span>
+            </a>
+            <a href="https://twitch.com/adminpacman" target="_blank" class="link-btn twitch-btn">
+                <span class="btn-text">Twitch</span>
+                <span class="btn-icon">🎮</span>
+            </a>
+        </nav>
+
+        <!-- Twitch Embed (Collapsed if offline) -->
+        <section id="twitch-wrapper" class="twitch-container" style="margin-top: 2rem; display: none;">
+            <div id="twitch-embed"></div>
+        </section>
+
+        <script src="https://player.twitch.tv/js/embed/v1.js"></script>
+        <script>
+            var options = {
+                width: "100%",
+                height: "100%",
+                channel: "adminpacman",
+                parent: ["localhost", "127.0.0.1", "pacsarcade.com", "www.pacsarcade.com"]
+            };
+            var player = new Twitch.Player("twitch-embed", options);
+
+            player.addEventListener(Twitch.Player.ONLINE, function () {
+                document.getElementById("twitch-wrapper").style.display = "block";
+            });
+        </script>
+
+        <!-- About Me Section -->
+        <section class="about-section" style="margin-top: 2rem; margin-bottom: 2rem;">
+            <h2>Who Am I</h2>
+            <p>At one point in my life, after more than twenty years out in the world, I found myself back at my mom's
+                house. I was sitting on the floor, taking inventory of what was left of my life. My mom walked by and
+                asked me, "What are you doing?"</p>
+            <p>I looked up and said: <strong>"I'm building a world I want to live in."</strong></p>
+            <p>I didn't know exactly where that world would lead yet. But I knew it had to be built. For most of my life
+                I was told there was a right way to do things — a narrow path you were supposed to follow.</p>
+            <p>Over time I realized something important. Many systems aren't broken because people are malicious.
+                They're broken because nobody questions them.</p>
+            <p>I've always been the type of person who studies the system, learns the rules deeply, and then finds the
+                most efficient path through them. Sometimes that means standing right on the edge of what people think
+                is possible. Not unethical. Not harmful. Just… unconventional.</p>
+            <p>That mindset is what I call being a <strong>degen</strong>. Not the insult people throw around online.
+                The real meaning. A degen is someone who refuses to accept that the limits placed on them are permanent.
+                A degen learns everything they can, pushes boundaries, and builds new paths where none existed before.
+            </p>
+            <p>I've spent decades in technology — solving problems, learning systems, staying up until sunrise chasing
+                solutions, then still showing up the next morning ready to work harder than anyone else in the room. Not
+                because I had to. Because I love building.</p>
+            <p>Pac's Arcade is the result of that mindset. It's a place for creators, builders, artists, and dreamers
+                who feel like they never quite fit into the traditional systems of the world. Here we build new ones.
+                Not with anger. With curiosity, creativity, and community.</p>
+            <p>This is the world I'm building. And if you're reading this, you're invited to help build it too.</p>
+        </section>
+
+        <!-- Back to Arcade Bottom Button -->
+        <a href="index.html" class="link-btn primary-btn" style="justify-content: center; margin-bottom: 2rem;">
+            <span class="btn-icon" style="margin-right: 0.5rem;">🕹️</span>
+            <span class="btn-text">Back to Arcade</span>
+        </a>
+
+        <footer>
+            <p>&copy; 2022 AdminPacman</p>
+        </footer>
+    </div>
+</body>
+
+</html>

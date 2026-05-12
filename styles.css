@@ -1,0 +1,254 @@
+@font-face {
+    font-family: 'Retronoid';
+    src: url('assets/retronoid/Retronoid.ttf') format('truetype');
+}
+
+:root {
+    --bg-navy: #050505;
+    --neon-green: #39FF14;
+    --hot-pink: #FF00FF;
+    --bright-yellow: #FFFF00;
+    --cyan: #00FFFF;
+    --twitch-purple: #9146FF;
+    --kick-green: #53FC18;
+    --font-header: 'Retronoid', monospace;
+    --font-body: 'Inter', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-navy);
+    color: #ffffff;
+    font-family: var(--font-body);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    line-height: 1.6;
+    background-image: 
+        linear-gradient(to bottom, rgba(5, 5, 5, 0) 0vh, rgba(5, 5, 5, 1) 40vh),
+        url('assets/pacsarcde-banner-og.png');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+}
+
+/* CRT Scanline Effect */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Header */
+.profile-header {
+    text-align: center;
+    margin-bottom: 1rem;
+    margin-top: 10vh; /* Push it down a bit to see the banner */
+    position: relative;
+    z-index: 2;
+}
+
+.title {
+    font-family: var(--font-header);
+    font-size: 3rem;
+    color: var(--neon-green);
+    text-shadow: 3px 3px 0px var(--hot-pink);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.tagline {
+    font-size: 0.95rem;
+    color: #a0a5cc;
+    font-weight: 600;
+}
+
+/* Twitch */
+.twitch-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 2px solid var(--hot-pink);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+    overflow: hidden;
+    background: #000;
+}
+
+/* About Section */
+.about-section {
+    background: rgba(17, 18, 32, 0.85); /* Deep surface color */
+    padding: 1.5rem;
+    border: 2px solid var(--cyan);
+    border-radius: 0px;
+    font-size: 0.95rem;
+    box-shadow: 6px 6px 0px var(--cyan);
+    backdrop-filter: blur(10px);
+}
+.about-section h2 {
+    font-family: var(--font-header);
+    color: var(--hot-pink);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--hot-pink);
+    padding-bottom: 0.5rem;
+}
+.about-section p {
+    margin-bottom: 1rem;
+}
+.about-section p:last-child {
+    margin-bottom: 0;
+}
+
+/* Links Grid */
+.links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.link-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.2rem 1.5rem;
+    background: #000;
+    text-decoration: none;
+    border-radius: 0px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.2s ease;
+    border: 2px solid transparent;
+}
+
+.link-btn:active {
+    transform: translate(6px, 6px);
+    box-shadow: none !important;
+}
+
+.btn-text {
+    font-family: var(--font-header);
+    font-size: 1rem;
+    -webkit-text-stroke: 1px black;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.8);
+}
+
+.btn-icon {
+    font-size: 1.2rem;
+}
+
+/* Button Variations */
+.primary-btn {
+    color: var(--neon-green);
+    border-color: var(--neon-green);
+    box-shadow: 6px 6px 0px var(--neon-green);
+}
+.primary-btn:hover {
+    background: rgba(57, 255, 20, 0.1);
+}
+
+.secondary-btn {
+    color: var(--hot-pink);
+    border-color: var(--hot-pink);
+    box-shadow: 6px 6px 0px var(--hot-pink);
+}
+.secondary-btn:hover {
+    background: rgba(255, 0, 255, 0.1);
+}
+
+.tertiary-btn {
+    color: var(--bright-yellow);
+    border-color: var(--bright-yellow);
+    box-shadow: 6px 6px 0px var(--bright-yellow);
+}
+.tertiary-btn:hover {
+    background: rgba(255, 255, 0, 0.1);
+}
+
+.accent-btn {
+    color: var(--cyan);
+    border-color: var(--cyan);
+    box-shadow: 6px 6px 0px var(--cyan);
+}
+.accent-btn:hover {
+    background: rgba(0, 255, 255, 0.1);
+}
+
+.twitch-btn {
+    color: var(--twitch-purple);
+    border-color: var(--twitch-purple);
+    box-shadow: 6px 6px 0px var(--twitch-purple);
+}
+.twitch-btn:hover {
+    background: rgba(145, 70, 255, 0.1);
+}
+
+.kick-btn {
+    color: var(--kick-green);
+    border-color: var(--kick-green);
+    box-shadow: 6px 6px 0px var(--kick-green);
+}
+.kick-btn:hover {
+    background: rgba(83, 252, 24, 0.1);
+}
+
+footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #666;
+    margin-top: 2rem;
+    font-family: var(--font-header);
+    font-size: 0.6rem;
+}
+
+@keyframes floatBob {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
+.back-icon-top {
+    position: fixed;
+    top: 2rem;
+    left: 2rem;
+    font-size: 2.5rem;
+    text-decoration: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    filter: drop-shadow(0 0 10px var(--neon-green));
+    z-index: 1000;
+    animation: floatBob 3s ease-in-out infinite;
+}
+
+.back-icon-top:hover {
+    animation: none;
+    transform: scale(1.1) rotate(-15deg);
+    filter: drop-shadow(0 0 20px var(--hot-pink));
+}
