@@ -98,8 +98,8 @@
     var beat = ((h % BLOCKS_PER_DAY) + BLOCKS_PER_DAY) % BLOCKS_PER_DAY;
     el.innerHTML =
       '<div class="bft-head">⧗ BITCOIN TIME</div>' +
-      '<div class="bft-date">' + pad(d.year, 4) + "." + pad(d.month, 2) + "." + pad(d.day, 2) + " a₿</div>" +
-      '<div class="bft-time">' + hhmm[0] + '<span class="bft-colon">:</span>' + hhmm[1] + "</div>" +
+      '<div class="bft-date">' + pad(d.year, 4) + ":" + pad(d.month, 2) + ":" + pad(d.day, 2) + "</div>" +
+      '<div class="bft-time">' + hhmm[0] + '<span class="bft-colon">:</span>' + hhmm[1] + ' <span class="bft-ab">a₿</span></div>' +
       '<div class="bft-sub">beat ' + pad(beat, 3) + "/144 · ★" + (tip.estimated ? "~" : "") + h.toLocaleString() + "</div>";
     el.title =
       "Bitcoin Time Clock — the calendar that syncs to the block, not the sun. " +
