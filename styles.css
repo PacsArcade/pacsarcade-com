@@ -253,26 +253,54 @@ footer {
     filter: drop-shadow(0 0 20px var(--hot-pink));
 }
 
-/* ── THE STRIP CLOCK ticket — the clock joins the ticket family:
-      2px border + hard offset shadow, amber (the clock's lawful color,
-      never coin gold), full container width, caption across the bottom ── */
+/* ── THE STRIP CLOCK ticket — the Admiral's pacsarcade-com-5 layout:
+      marquee title ON the top border · big centered flip digits · facts
+      spread across the footer row. Amber, never coin gold. ── */
 :root { --clock-amber: #F7A824; }
 #bft-strip-clock {
     display: block;
     position: relative;
     z-index: 2;
-    background: rgba(17, 18, 32, 0.85);
+    margin-top: 1.1em; /* room for the marquee to ride the border */
+    background: rgba(13, 13, 16, 0.92);
     border: 2px solid var(--clock-amber);
     border-radius: 0;
     box-shadow: 6px 6px 0px var(--clock-amber);
-    backdrop-filter: blur(10px);
-    padding: 0.55rem 0.55rem 0.5rem;
+    padding: 1.1rem 0.8rem 0.55rem;
+}
+#bft-strip-clock .sclk-marquee {
+    position: absolute;
+    top: -0.72em;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #0d0d10;
+    padding: 0 14px;
+    color: var(--clock-amber);
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    white-space: nowrap;
+    z-index: 3;
 }
 #bft-strip-clock .sclk-card {
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
+    justify-content: center;      /* the digits stand alone, centered */
+    padding: 26px 26px 24px;
 }
-@media (max-width: 480px) {
+#bft-strip-clock .sclk-clock { font-size: 34px; }
+#bft-strip-clock .sclk-factsrow {
+    flex-direction: row;          /* the mock's footer spread */
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+    padding: 9px 6px 0;
+}
+@media (max-width: 640px) {
+    #bft-strip-clock .sclk-clock { font-size: 22px; }
+    #bft-strip-clock .sclk-marquee { font-size: 10px; letter-spacing: 0.18em; }
+    #bft-strip-clock .sclk-factsrow { justify-content: center; text-align: center; }
     #bft-strip-clock { box-shadow: 4px 4px 0px var(--clock-amber); }
 }
