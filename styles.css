@@ -252,3 +252,27 @@ footer {
     transform: scale(1.1) rotate(-15deg);
     filter: drop-shadow(0 0 20px var(--hot-pink));
 }
+
+/* ── THE STRIP CLOCK ticket — the clock joins the ticket family:
+      2px border + hard offset shadow, amber (the clock's lawful color,
+      never coin gold), full container width, caption across the bottom ── */
+:root { --clock-amber: #F7A824; }
+#bft-strip-clock {
+    display: block;
+    position: relative;
+    z-index: 2;
+    background: rgba(17, 18, 32, 0.85);
+    border: 2px solid var(--clock-amber);
+    border-radius: 0;
+    box-shadow: 6px 6px 0px var(--clock-amber);
+    backdrop-filter: blur(10px);
+    padding: 0.55rem 0.55rem 0.5rem;
+}
+#bft-strip-clock .sclk-card {
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+@media (max-width: 480px) {
+    #bft-strip-clock { box-shadow: 4px 4px 0px var(--clock-amber); }
+}

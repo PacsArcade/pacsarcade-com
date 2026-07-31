@@ -234,3 +234,19 @@
   .sclk-glayer { animation: none !important; }
   .sclk-ghost .sclk-ginner { animation: none !important; }
 }
+
+/* the caption across the bottom — standalone/ticket mode only (the React
+   strip renders no caption element; harmless elsewhere) */
+.sclk-caption {
+  display: block;
+  text-align: center;
+  margin-top: 7px;
+  font-size: 10px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #f2b13d;
+  opacity: 0.85;
+}
+@media (max-width: 480px) {
+  .sclk-caption { font-size: 8.5px; letter-spacing: 0.16em; }
+}
