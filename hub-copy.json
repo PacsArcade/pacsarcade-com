@@ -1,0 +1,47 @@
+{
+  "_source": "Words for the com_hub page come from Lumen's copy deck (design-round-7-glass/copy.json). Sentence case here; hub.css uppercases display text. Items marked ours are not in the deck.",
+  "title": "Pac's Arcade",
+  "description": "Quick links to Pac's Arcade: get a player tag, back a project, join the Discord and find us online.",
+  "clock_caption": "tick tock, it all comes back to the block",
+  "wordmark": "Pac's Arcade",
+  "hero": {
+    "kicker": "Play, learn, grow",
+    "title": "Pac's Arcade",
+    "promise": "Play together. Learn for free. Grow what you make.",
+    "body": "A non-profit in formation. People make art, learn bitcoin and back each other. We never hold your sats."
+  },
+  "doors": {
+    "heading": "Pick a door",
+    "items": [
+      {"label": "Get a player tag", "href": "https://pacsarcade.org/register", "kind": "primary"},
+      {"label": "Back a project", "href": "https://pacsarcade.org/campaigns", "kind": "money"},
+      {"label": "Join the Discord", "href": "https://discord.com/invite/uCEKeA5YB2", "kind": "secondary"}
+    ]
+  },
+  "online": {
+    "heading": "Find us online",
+    "items": [
+      {"label": "X", "who": "@pacsarcade", "href": "https://x.com/pacsarcade"},
+      {"label": "Instagram", "who": "@pacsarcade", "href": "https://www.instagram.com/pacsarcade"},
+      {"label": "YouTube", "who": "@pacsarcade", "href": "https://youtube.com/@pacsarcade"},
+      {"label": "Twitch", "who": "@adminpacman", "href": "https://www.twitch.tv/adminpacman"}
+    ]
+  },
+  "about": {
+    "heading": "About Pac",
+    "name": "AdminPacman",
+    "role": "Founder and lead developer",
+    "text": "After more than twenty years out in the world, I sat on my mom's floor taking inventory of what was left of my life. She asked what I was doing. I said, \"I'm building a world I want to live in.\" Pac's Arcade is that world: a place for creators, builders, artists and dreamers, built with curiosity, creativity and community.",
+    "more": {"label": "Follow Pac on X", "href": "https://x.com/adminpacman"}
+  },
+  "footer": {
+    "links": [
+      {"label": "YouTube", "href": "https://youtube.com/@pacsarcade"},
+      {"label": "X", "href": "https://x.com/pacsarcade"},
+      {"label": "Instagram", "href": "https://www.instagram.com/pacsarcade"},
+      {"label": "Email us", "href": "mailto:info@pacsarcade.com"},
+      {"label": "White paper", "href": "https://pacsarcade.org/whitepaper"}
+    ],
+    "line": "Pac's Arcade, 0018 a₿. A non-profit in formation. No fees. Your keys, your sats."
+  }
+}

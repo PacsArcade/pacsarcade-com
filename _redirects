@@ -1,0 +1,5 @@
+# Old pages point at the new one-page hub (Netlify). Status 301 = permanent.
+/pacs-arcade-links        /   301!
+/pacs-arcade-links.html   /   301!
+/aboutpac                 /#about   301!
+/aboutpac.html            /#about   301!
