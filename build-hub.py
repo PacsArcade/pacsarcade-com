@@ -2,7 +2,7 @@
 """Builds index.html from hub-copy.json. All words live in the JSON; layout lives here and in hub.css.
 Run: python3 build-hub.py   (no installs needed). Each text gets a non-breaking space before its
 last word so a block can never end with one word alone."""
-import json, html, pathlib
+import json, html, pathlib, re
 root = pathlib.Path(__file__).parent
 c = json.loads((root / "hub-copy.json").read_text())
 
@@ -16,8 +16,17 @@ def ext(h): return ' target="_blank" rel="noopener noreferrer"' if h.startswith(
 kinds = {"primary": "pb-primary", "money": "pb-money", "secondary": "pb-secondary"}
 doors = "\n".join(f'<a class="pb {kinds[d["kind"]]}" href="{a(d["href"])}"{ext(d["href"])}><span>{t(d["label"])}</span></a>' for d in c["doors"]["items"])
 def plain(s): return html.escape(s, quote=False)
-def online_item(d): return f'<a class="pb pb-secondary pb-two" href="{a(d["href"])}"{ext(d["href"])}><span>{t(d["label"])}</span><small>{t(d["who"])}</small></a>'
-online = "\n".join(f'<h3 class="group-label px">{plain(g["label"])}</h3>\n<div class="list">\n' + "\n".join(online_item(d) for d in g["items"]) + '\n</div>' for g in c["online"]["groups"])
+def icon_svg(name):
+    """Inline the one path of a Simple Icons file (CC0), drawn in currentColor. Read as text only."""
+    m = re.search(r'<path d="([^"]+)"', (root / "assets" / "icons" / f"{name}.svg").read_text())
+    return f'<svg class="mk" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="{m.group(1)}"/></svg>' if m else ""
+def online_item(d):
+    svg = icon_svg(d["icon"]) if (root / "assets" / "icons" / f'{d["icon"]}.svg').exists() else ""
+    name = "" if svg else f'<span>{t(d["label"])}</span>'
+    return f'<a class="pb pb-secondary pb-two pb-icon" aria-label="{a(d["label"] + " " + d["who"])}" href="{a(d["href"])}"{ext(d["href"])}>{svg}{name}<small>{plain(d["who"])}</small></a>'
+groups = c["online"]["groups"]
+sw_btns = "\n".join(f'<button type="button" class="sw-btn{" on" if i == 0 else ""}" data-pane="grp{i}" aria-pressed="{"true" if i == 0 else "false"}">{plain(g.get("switch", g["label"]))}</button>' for i, g in enumerate(groups))
+online = f'<div class="switch" role="group" aria-label="{a(c["online"]["switch_label"])}" hidden>\n{sw_btns}\n</div>\n' + "\n".join(f'<div class="pane" id="grp{i}" role="group" aria-labelledby="grp{i}h">\n<h3 class="group-label px" id="grp{i}h">{plain(g["label"])}</h3>\n<div class="list">\n' + "\n".join(online_item(d) for d in g["items"]) + '\n</div>\n</div>' for i, g in enumerate(groups))
 lv = c["live"]
 flinks = "\n".join(f'<a href="{a(d["href"])}"{ext(d["href"])}>{t(d["label"])}</a>' for d in c["footer"]["links"])
 h = c["hero"]; ab = c["about"]
@@ -81,6 +90,19 @@ try {{
   var player = new Twitch.Player("twitch-embed", {{ width: "100%", height: "100%", channel: {json.dumps(lv["channel"])}, parent: {json.dumps(lv["parents"])} }});
   player.addEventListener(Twitch.Player.ONLINE, function () {{ document.getElementById("twitch-wrapper").style.display = "block"; }});
 }} catch (e) {{}}
+</script>
+<script>
+/* Two-position switch for the channel lists. Without scripts both lists stay visible. */
+(function () {{
+  var sw = document.querySelector(".switch"); if (!sw) return;
+  var btns = sw.querySelectorAll(".sw-btn"), panes = document.querySelectorAll(".pane");
+  function pick(id) {{
+    for (var i = 0; i < btns.length; i++) {{ var on = btns[i].getAttribute("data-pane") === id; btns[i].classList.toggle("on", on); btns[i].setAttribute("aria-pressed", on ? "true" : "false"); }}
+    for (var j = 0; j < panes.length; j++) panes[j].hidden = panes[j].id !== id;
+  }}
+  for (var k = 0; k < btns.length; k++) btns[k].addEventListener("click", function () {{ pick(this.getAttribute("data-pane")); }});
+  document.documentElement.classList.add("js"); sw.hidden = false; pick("grp0");
+}})();
 </script>
 <link rel="stylesheet" href="strip-clock.css">
 <script src="strip-clock.js" defer></script>

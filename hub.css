@@ -65,7 +65,8 @@ p,h1,h2,a,span,small{text-wrap:pretty}
 .group-label:first-of-type{margin-top:0}
 /* live window: hidden until the Twitch player reports ONLINE */
 .live{display:none;padding:20px 16px 0}
-.live .panel{max-width:640px;margin:0 auto;text-align:center}
+.live .px{padding:2px 0}
+.live .panel{max-width:1100px;margin:0 auto;text-align:center;padding:12px}
 .live h2{font-size:.8rem;line-height:1.4;color:var(--pink);margin:0 0 14px}
 .live-frame{position:relative;width:100%;aspect-ratio:16/9;border-radius:14px;overflow:hidden;background:#000;border:1px solid var(--edge)}
 .live-frame>div,.live-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
@@ -84,3 +85,16 @@ p,h1,h2,a,span,small{text-wrap:pretty}
 .legal{margin:14px auto 0;max-width:44em;text-wrap:balance;font-size:.9rem;line-height:1.6;color:var(--muted)}
 @media(min-width:700px){.hero{padding-top:48px}.col{max-width:540px}}
 @media(prefers-reduced-motion:reduce){.pb{transition:none}.pb:hover{transform:none}}
+/* icon items: the platform mark in the ink colour beside the handle */
+.pb-icon{flex-wrap:nowrap;gap:12px}
+.pb-icon .mk{flex:none;width:22px;height:22px;color:var(--ink)}
+.pb-icon small{font-size:.95rem;color:#e6e6e6}
+/* two-position switch, copied from the Lumen Live face toggle: glass pill, ink edge, one size for both */
+.switch{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);margin:0 0 var(--gap)}
+.switch[hidden],.pane[hidden]{display:none}
+.sw-btn{height:var(--btn-h);padding:0 14px;border-radius:999px;background:rgba(255,236,214,.07);border:1px solid rgba(255,226,196,.62);color:#ede9e0;
+  font-family:var(--px);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer}
+.sw-btn:hover{background:rgba(255,236,214,.16);border-color:#ede9e0}
+.sw-btn.on{border-color:var(--cyan);color:var(--cyan);background:rgba(0,255,255,.08)}
+.sw-btn:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.js .group-label{display:none}

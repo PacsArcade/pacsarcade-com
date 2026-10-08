@@ -39,19 +39,23 @@
           {
             "label": "X",
             "who": "@pacsarcade",
-            "href": "https://x.com/pacsarcade"
+            "href": "https://x.com/pacsarcade",
+            "icon": "x"
           },
           {
             "label": "Instagram",
             "who": "@pacsarcade",
-            "href": "https://www.instagram.com/pacsarcade"
+            "href": "https://www.instagram.com/pacsarcade",
+            "icon": "instagram"
           },
           {
             "label": "YouTube",
             "who": "@pacsarcade",
-            "href": "https://youtube.com/@pacsarcade"
+            "href": "https://youtube.com/@pacsarcade",
+            "icon": "youtube"
           }
-        ]
+        ],
+        "switch": "Arcade"
       },
       {
         "label": "AdminPacman",
@@ -59,31 +63,38 @@
           {
             "label": "X",
             "who": "@adminpacman",
-            "href": "https://x.com/adminpacman"
+            "href": "https://x.com/adminpacman",
+            "icon": "x"
           },
           {
             "label": "Instagram",
             "who": "@adminpacman",
-            "href": "https://instagram.com/adminpacman"
+            "href": "https://instagram.com/adminpacman",
+            "icon": "instagram"
           },
           {
             "label": "YouTube",
             "who": "@adminpacman",
-            "href": "https://youtube.com/@adminpacman"
+            "href": "https://youtube.com/@adminpacman",
+            "icon": "youtube"
           },
           {
             "label": "Twitch",
             "who": "@adminpacman",
-            "href": "https://www.twitch.tv/adminpacman"
+            "href": "https://www.twitch.tv/adminpacman",
+            "icon": "twitch"
           },
           {
             "label": "Kick",
             "who": "@adminpacman",
-            "href": "https://kick.com/adminpacman"
+            "href": "https://kick.com/adminpacman",
+            "icon": "kick"
           }
-        ]
+        ],
+        "switch": "Pac"
       }
-    ]
+    ],
+    "switch_label": "Choose whose channels to show"
   },
   "about": {
     "heading": "About Pac",
@@ -91,8 +102,8 @@
     "role": "Founder and lead developer",
     "text": "After more than twenty years out in the world, I sat on my mom's floor taking inventory of what was left of my life. She asked what I was doing. I said, \"I'm building a world I want to live in.\" Pac's Arcade is that world: a place for creators, builders, artists and dreamers, built with curiosity, creativity and community.",
     "more": {
-      "label": "Follow Pac on X",
-      "href": "https://x.com/adminpacman"
+      "label": "Read Pac's whole story",
+      "href": "aboutpac.html"
     }
   },
   "footer": {
