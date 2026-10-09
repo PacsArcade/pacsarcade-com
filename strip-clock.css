@@ -182,8 +182,8 @@
 }
 @keyframes sclk-fadeflap { from { opacity: 0.15; } to { opacity: 1; } }
 .sclk .flip-colon { color: #f2f0ea; font-weight: 600; opacity: 0.92; padding: 0 1px; }
-/* the LIVE seconds card wears the honest ~ (sub-block time is an estimate) */
-.sclk .flip.live .flip-est {
+/* the SECONDS card wears the honest ~ (sub-block time is an estimate) */
+.sclk .flip.flip-sec .flip-est {
   position: absolute;
   top: 1px;
   right: 2px;

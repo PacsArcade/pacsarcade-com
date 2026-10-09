@@ -16,7 +16,7 @@
     <span class="flip"><span class="flip-val">\u2013</span></span>
     <span class="flip-colon">:</span>
     <span class="flip"><span class="flip-val">\u2013</span></span>
-    <span class="flip live"><span class="flip-val">\u2013</span><span class="flip-est" aria-hidden="true">~</span></span>
+    <span class="flip flip-sec"><span class="flip-val">\u2013</span><span class="flip-est" aria-hidden="true">~</span></span>
   </span>
 </span>
 <span class="sclk-facts sclk-factsrow">
