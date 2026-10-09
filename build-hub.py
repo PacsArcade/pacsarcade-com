@@ -48,7 +48,7 @@ page = f'''<!DOCTYPE html>
 <header class="top"><div class="bar">
 <a class="mark" href="/"><img src="assets/bitcoin.gif" alt="" width="24" height="24"><span>{plain(c["wordmark"])}</span></a>
 </div></header>
-<div class="strip-wrap"><a id="bft-strip-clock" href="https://pacsarcade.org/time" data-caption="{a(c["clock_caption"])}" title="Bitcoin Federated Time: the clock that syncs to the block, not the sun. Open the time page."></a></div>
+<div class="strip-wrap"><a id="bft-strip-clock" href="{a(c["clock_href"])}" data-caption="{a(c["clock_caption"])}" title="Bitcoin Federated Time: the clock that syncs to the block, not the sun. Open the time page."></a></div>
 <main>
 <section class="hero"><div class="panel hero-card">
 <p class="kicker kicker-pink">{t(h["kicker"])}</p>

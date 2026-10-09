@@ -3,6 +3,7 @@
   "title": "Pac's Arcade",
   "description": "Quick links to Pac's Arcade: get a player tag, back a project, join the Discord and find us online.",
   "clock_caption": "tick tock, it all comes back to the block",
+  "clock_href": "/time.html",
   "wordmark": "Pac's Arcade",
   "hero": {
     "kicker": "Play, learn, grow",
@@ -62,8 +63,8 @@
         "items": [
           {
             "label": "X",
-            "who": "@adminpacman",
-            "href": "https://x.com/adminpacman",
+            "who": "@dminpacman",
+            "href": "https://x.com/dminpacman",
             "icon": "x"
           },
           {

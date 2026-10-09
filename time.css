@@ -1,0 +1,30 @@
+/* time.html: the pacsarcade.com version of the time study. Builds on hub.css (glass, dark, rounded). */
+.subbar{display:flex;justify-content:center;padding:0 16px 14px}
+.pill{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 22px;border-radius:999px;
+  background:rgba(255,236,214,.07);border:1px solid rgba(255,226,196,.62);color:#ede9e0;font-family:var(--px);font-size:.65rem;line-height:1.4;
+  letter-spacing:.1em;text-transform:uppercase;text-decoration:none;text-align:center}
+.pill:hover{background:rgba(255,236,214,.16);border-color:#ede9e0}
+.pill:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.t-hero{padding:28px 16px 0}
+.t-hero .hero-card h1{color:#f7a824}
+.t-clock{max-width:640px}
+.t-clock #bft-strip-clock .sclk-clock{font-size:clamp(26px,9vw,52px)}
+.t-clock #bft-strip-clock .sclk-card{padding:26px 12px 24px}
+.t-clock #bft-strip-clock .sclk-factsrow{align-items:center}
+.t-stats{padding:28px 16px 0}
+.t-grid{display:grid;grid-template-columns:1fr;gap:var(--gap);max-width:640px;margin:0 auto}
+@media(min-width:560px){.t-grid{grid-template-columns:1fr 1fr}}
+.t-tile{display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:112px;padding:18px var(--pad);text-align:center}
+.t-label{font-family:var(--px);font-size:.55rem;line-height:1.9;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.t-value{font-family:var(--px);font-size:clamp(.95rem,4.6vw,1.25rem);line-height:1.4;color:var(--ink);font-variant-numeric:tabular-nums}
+.t-gold{color:#f7a824}
+.t-sub{font-size:.9rem;line-height:1.5;color:var(--muted)}
+.t-how{padding:28px 16px 0}
+.t-how .panel{max-width:640px;margin:0 auto}
+.t-how h2{font-size:clamp(.9rem,4.4vw,1.2rem);line-height:1.5;color:var(--cyan);margin:0 0 14px;text-align:center}
+.t-how p{margin:0 0 12px}
+.t-how p:last-child{margin-bottom:0}
+.t-how ul{margin:0 0 12px;padding-left:1.2em}
+.t-how li{margin:0 0 6px}
+.t-go{padding:28px 16px 0}
+.t-go .list{max-width:520px;margin:0 auto}
