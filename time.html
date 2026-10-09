@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bitcoin Time | Pac's Arcade</title>
+<meta name="description" content="The clock that keeps time by the block, not the sun. Block height, the Bitcoin Federated Time date and the clock, read live from the chain.">
+<meta name="color-scheme" content="dark">
+<meta property="og:image" content="https://www.pacsarcade.com/assets/pacsarcde-banner-og.png">
+<link rel="stylesheet" href="hub.css">
+<link rel="stylesheet" href="time.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="top">
+<div class="bar"><a class="mark" href="/"><img src="assets/bitcoin.gif" alt="" width="24" height="24"><span>Pac's Arcade</span></a></div>
+<nav class="subbar" aria-label="Page"><a class="pill" href="/">Back to the hub</a></nav>
+</header>
+<main>
+<section class="t-hero"><div class="panel hero-card">
+<p class="kicker kicker-pink">The time study</p>
+<h1 class="px">Bitcoin Time</h1>
+<p class="promise">The clock that keeps time by the block, not the sun.</p>
+<p class="line">Ten laps of the ring make one block. Pac eats the waiting payments and the frightened fiat, and the&nbsp;bitcoin lands on the&nbsp;tenth.</p>
+</div></section>
+<section class="strip-wrap t-clock" aria-label="The clock"><div id="bft-strip-clock" data-bft-only="1" data-caption="tick tock, it all comes back to the block"></div></section>
+<section class="t-stats" aria-label="Right now"><div class="t-grid">
+<div class="panel t-tile"><span class="t-label">Block height</span><span class="t-value t-gold" id="t-height">...</span><span class="t-sub">blocks since the first block</span></div>
+<div class="panel t-tile"><span class="t-label">Date</span><span class="t-value" id="t-date">....</span><span class="t-sub">year, month, day a&#8383;</span></div>
+<div class="panel t-tile"><span class="t-label">Clock, 24 hour</span><span class="t-value" id="t-clock">..:..</span><span class="t-sub">hours and minutes into the day</span></div>
+<div class="panel t-tile"><span class="t-label">Level</span><span class="t-value t-gold" id="t-level">...</span><span class="t-sub" id="t-retune">blocks until the next re-tune</span></div>
+</div></section>
+<section class="t-how"><div class="panel">
+<h2 class="px">How to read it</h2>
+<p>Bitcoin finds a block about every ten minutes. We count time in blocks. Nothing here looks at a wall clock or a calendar.</p>
+<ul>
+<li>A day is 144 blocks.</li>
+<li>A month is 28 days.</li>
+<li>A year is 364 days, which is 52,416 blocks.</li>
+<li>The clock reads hours and minutes inside the day. Each block is ten minutes.</li>
+</ul>
+<p>The seconds are an honest guess. They count up from the moment the last block was found. When the next block is late the card breathes amber and says it is waiting.</p>
+<p>Every 2,016 blocks the network re-tunes how hard blocks are to find, so they keep arriving about ten minutes apart. That count is the level.</p>
+</div></section>
+<section class="t-go"><div class="list">
+<a class="pb pb-primary" href="/"><span>Back to the hub</span></a>
+<a class="pb pb-secondary" href="https://github.com/PacsArcade/bitcoin-federated-time" target="_blank" rel="noopener noreferrer"><span>Read the paper on GitHub</span></a>
+</div></section>
+</main>
+<footer class="foot"><div class="col">
+<nav class="flinks" aria-label="Footer">
+<a href="/">Back to the hub</a>
+<a href="/#about">About Pac</a>
+</nav>
+<p class="legal">Time is read from the chain. Heights come from the house beacon at time.pacsarcade.org.</p>
+</div></footer>
+<script>
+(function () {
+  function q(id) { return document.getElementById(id); }
+  function pad(v, n) { v = String(v); while (v.length < n) v = "0" + v; return v; }
+  function show(n) {
+    var day = Math.floor(n / 144), year = Math.floor(day / 364), doy = day % 364;
+    var month = Math.floor(doy / 28) + 1, dom = (doy % 28) + 1, mins = (n % 144) * 10;
+    q("t-height").textContent = n.toLocaleString("en-US");
+    q("t-date").textContent = pad(year, 4) + "." + pad(month, 2) + "." + pad(dom, 2);
+    q("t-clock").textContent = pad(Math.floor(mins / 60), 2) + ":" + pad(mins % 60, 2);
+    q("t-level").textContent = String(Math.floor(n / 2016));
+    q("t-retune").textContent = (2016 - (n % 2016)).toLocaleString("en-US") + " blocks until the next re-tune";
+  }
+  function pull() {
+    fetch("https://time.pacsarcade.org/height", { cache: "no-store" })
+      .then(function (r) { return r.json(); })
+      .then(function (j) { if (j && j.height > 0) show(j.height); })
+      .catch(function () {});
+  }
+  pull(); setInterval(pull, 30000);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) pull(); });
+})();
+</script>
+<link rel="stylesheet" href="strip-clock.css">
+<script src="strip-clock.js" defer></script>
+</body>
+</html>
