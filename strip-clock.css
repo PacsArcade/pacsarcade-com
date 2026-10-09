@@ -235,6 +235,33 @@
   .sclk-ghost .sclk-ginner { animation: none !important; }
 }
 
+/* --- WAITING for the next block: the block is overdue (over 10 minutes
+   since the tip). The card breathes an amber ring, the digits tremble a
+   hair, and a note with a pulsing dot says it in words. All slower than
+   2 beats a second (the never-flash law). Reduced motion: no animation,
+   a steady ring and the same note.  --- */
+.sclk-waitnote { display: none; font-size: 8px; letter-spacing: 0.22em; text-transform: uppercase; color: #f7a824; white-space: nowrap; }
+.sclk-waitdot { display: inline-block; width: 6px; height: 6px; margin-right: 7px; border-radius: 50%; background: #f7a824; vertical-align: 1px; }
+.sclk-waiting .sclk-waitnote { display: inline-block; }
+.sclk-waiting .sclk-card { border-color: rgba(247, 168, 36, 0.85); box-shadow: 0 0 0 2px rgba(247, 168, 36, 0.55), 0 10px 26px rgba(0, 0, 0, 0.55); }
+@media (prefers-reduced-motion: no-preference) {
+  .sclk-waiting .sclk-card { animation: sclk-wait-ring 1.6s ease-in-out infinite; }
+  .sclk-waiting .sclk-clock { animation: sclk-wait-tremor 0.42s linear infinite; }
+  .sclk-waiting .sclk-waitdot { animation: sclk-wait-dot 1.6s ease-in-out infinite; }
+}
+@keyframes sclk-wait-ring {
+  0%, 100% { box-shadow: 0 0 0 1px rgba(247, 168, 36, 0.25), 0 0 4px rgba(247, 168, 36, 0.15), 0 10px 26px rgba(0, 0, 0, 0.55); border-color: rgba(247, 168, 36, 0.4); }
+  50% { box-shadow: 0 0 0 3px rgba(247, 168, 36, 0.8), 0 0 26px rgba(247, 168, 36, 0.55), 0 10px 26px rgba(0, 0, 0, 0.55); border-color: rgba(247, 168, 36, 1); }
+}
+@keyframes sclk-wait-tremor {
+  0% { transform: translate(0, 0); }
+  25% { transform: translate(0.7px, -0.5px); }
+  50% { transform: translate(-0.6px, 0.4px); }
+  75% { transform: translate(0.5px, 0.6px); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes sclk-wait-dot { 0%, 100% { opacity: 0.3; transform: scale(0.8); } 50% { opacity: 1; transform: scale(1.25); } }
+
 /* the caption across the bottom — standalone/ticket mode only (the React
    strip renders no caption element; harmless elsewhere) */
 .sclk-caption {
