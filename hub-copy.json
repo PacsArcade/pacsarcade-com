@@ -13,35 +13,133 @@
   "doors": {
     "heading": "Pick a door",
     "items": [
-      {"label": "Get a player tag", "href": "https://pacsarcade.org/register", "kind": "primary"},
-      {"label": "Back a project", "href": "https://pacsarcade.org/campaigns", "kind": "money"},
-      {"label": "Join the Discord", "href": "https://discord.com/invite/uCEKeA5YB2", "kind": "secondary"}
+      {
+        "label": "Get a player tag",
+        "href": "https://pacsarcade.org/register",
+        "kind": "primary"
+      },
+      {
+        "label": "Back a project",
+        "href": "https://pacsarcade.org/campaigns",
+        "kind": "money"
+      },
+      {
+        "label": "Join the Discord",
+        "href": "https://discord.com/invite/uCEKeA5YB2",
+        "kind": "secondary"
+      }
     ]
   },
   "online": {
     "heading": "Find us online",
-    "items": [
-      {"label": "X", "who": "@pacsarcade", "href": "https://x.com/pacsarcade"},
-      {"label": "Instagram", "who": "@pacsarcade", "href": "https://www.instagram.com/pacsarcade"},
-      {"label": "YouTube", "who": "@pacsarcade", "href": "https://youtube.com/@pacsarcade"},
-      {"label": "Twitch", "who": "@adminpacman", "href": "https://www.twitch.tv/adminpacman"}
-    ]
+    "groups": [
+      {
+        "label": "Pac's Arcade",
+        "items": [
+          {
+            "label": "X",
+            "who": "@pacsarcade",
+            "href": "https://x.com/pacsarcade",
+            "icon": "x"
+          },
+          {
+            "label": "Instagram",
+            "who": "@pacsarcade",
+            "href": "https://www.instagram.com/pacsarcade",
+            "icon": "instagram"
+          },
+          {
+            "label": "YouTube",
+            "who": "@pacsarcade",
+            "href": "https://youtube.com/@pacsarcade",
+            "icon": "youtube"
+          }
+        ],
+        "switch": "Arcade"
+      },
+      {
+        "label": "AdminPacman",
+        "items": [
+          {
+            "label": "X",
+            "who": "@adminpacman",
+            "href": "https://x.com/adminpacman",
+            "icon": "x"
+          },
+          {
+            "label": "Instagram",
+            "who": "@adminpacman",
+            "href": "https://instagram.com/adminpacman",
+            "icon": "instagram"
+          },
+          {
+            "label": "YouTube",
+            "who": "@adminpacman",
+            "href": "https://youtube.com/@adminpacman",
+            "icon": "youtube"
+          },
+          {
+            "label": "Twitch",
+            "who": "@adminpacman",
+            "href": "https://www.twitch.tv/adminpacman",
+            "icon": "twitch"
+          },
+          {
+            "label": "Kick",
+            "who": "@adminpacman",
+            "href": "https://kick.com/adminpacman",
+            "icon": "kick"
+          }
+        ],
+        "switch": "Pac"
+      }
+    ],
+    "switch_label": "Choose whose channels to show"
   },
   "about": {
     "heading": "About Pac",
     "name": "AdminPacman",
     "role": "Founder and lead developer",
     "text": "After more than twenty years out in the world, I sat on my mom's floor taking inventory of what was left of my life. She asked what I was doing. I said, \"I'm building a world I want to live in.\" Pac's Arcade is that world: a place for creators, builders, artists and dreamers, built with curiosity, creativity and community.",
-    "more": {"label": "Follow Pac on X", "href": "https://x.com/adminpacman"}
+    "more": {
+      "label": "Read Pac's whole story",
+      "href": "aboutpac.html"
+    }
   },
   "footer": {
     "links": [
-      {"label": "YouTube", "href": "https://youtube.com/@pacsarcade"},
-      {"label": "X", "href": "https://x.com/pacsarcade"},
-      {"label": "Instagram", "href": "https://www.instagram.com/pacsarcade"},
-      {"label": "Email us", "href": "mailto:info@pacsarcade.com"},
-      {"label": "White paper", "href": "https://pacsarcade.org/whitepaper"}
+      {
+        "label": "YouTube",
+        "href": "https://youtube.com/@pacsarcade"
+      },
+      {
+        "label": "X",
+        "href": "https://x.com/pacsarcade"
+      },
+      {
+        "label": "Instagram",
+        "href": "https://www.instagram.com/pacsarcade"
+      },
+      {
+        "label": "Email us",
+        "href": "mailto:info@pacsarcade.com"
+      },
+      {
+        "label": "White paper",
+        "href": "https://pacsarcade.org/whitepaper"
+      }
     ],
     "line": "Pac's Arcade, 0018 a₿. A non-profit in formation. No fees. Your keys, your sats."
+  },
+  "live": {
+    "heading": "Live now",
+    "channel": "adminpacman",
+    "parents": [
+      "localhost",
+      "127.0.0.1",
+      "pacsarcade.com",
+      "www.pacsarcade.com"
+    ],
+    "player_script": "https://player.twitch.tv/js/embed/v1.js"
   }
 }
